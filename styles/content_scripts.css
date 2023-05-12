@@ -1,0 +1,14 @@
+.bluespy-overwrite {
+  font-size: 0 !important;
+
+  &::before {
+    font-size: 16px;
+    content: attr(data-bluespy-destination);
+    line-height: 2px;
+  }
+}
+
+.bluespy-beside::after {
+  font-size: 12px;
+  content: " [💙😎" attr(data-bluespy-destination) "]";
+}
