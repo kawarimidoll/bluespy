@@ -15,15 +15,22 @@ function main(e) {
           if (e.innerText.endsWith("...") || isExternal(e.href)) {
             const href = e.href.replace(/^https?:\/\//, "");
             const innerText = e.innerText.replace("...", "");
-            const className = href.startsWith(innerText)
-              ? "bluespy-overwrite"
-              : "bluespy-beside";
+            const dst = decodeURI(e.href);
+            if (href.startsWith(innerText)) {
+              // overwrite
+              e.innerText = dst;
+            } else {
+              // beside
+              const span = document.createElement("span");
+              span.innerText = ` [💙😎 ${dst} ]`;
+              const parentFontSize = e.style["font-size"]?.replace("px", "");
+              const fontSize = Number(parentFontSize || "16") - 4;
+              span.style["font-size"] = `${fontSize}px`;
 
-            e.setAttribute("data-bluespy-destination", decodeURI(e.href));
-            e.classList.add(className);
-          } else {
-            e.classList.add("bluespy-skip");
+              e.appendChild(span);
+            }
           }
+          e.classList.add("bluespy-skip");
         },
       );
   }

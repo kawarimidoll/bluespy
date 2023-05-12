@@ -10,8 +10,7 @@
         "https://staging.bsky.app/",
         "https://staging.bsky.app/profile/*"
       ],
-      "js": ["./scripts/content_scripts.js"],
-      "css": ["./styles/content_scripts.css"]
+      "js": ["./scripts/content_scripts.js"]
     }
   ]
 }
