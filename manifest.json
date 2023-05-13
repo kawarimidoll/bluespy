@@ -12,5 +12,9 @@
       ],
       "js": ["./scripts/content_scripts.js"]
     }
-  ]
+  ],
+  "icons": {
+    "16": "./images/bluespy-16.png",
+    "128": "./images/bluespy-128.png"
+  }
 }
