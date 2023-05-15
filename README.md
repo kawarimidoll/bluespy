@@ -4,7 +4,7 @@
 
 Chrome extension to reveal links in [Bluesky](https://bsky.app).
 
-<!-- chrome store link -->
+https://chrome.google.com/webstore/detail/bluespy/nligeepfppdnimijdnjgiffgnkgdggdp
 
 ## Author
 
