@@ -7,6 +7,8 @@
   "content_scripts": [
     {
       "matches": [
+        "https://bsky.app/",
+        "https://bsky.app/profile/*",
         "https://staging.bsky.app/",
         "https://staging.bsky.app/profile/*"
       ],
