@@ -4,14 +4,22 @@ function isExternal(url) {
   return !/^https:\/\/(staging\.)?bsky\.app/.test(url);
 }
 
+function genSelector(itemType) {
+  return `div[role="link"][data-testid^="${itemType}Item-by-"] a.css-1qaijid.r-13awgt0.r-1loqt21[role="link"]`;
+}
+
 function main(e) {
   const jsInitCheckTimer = setInterval(jsLoaded, 1000);
 
   function jsLoaded() {
-    const selector = 'a.css-1qaijid.r-1loqt21[role="link"]';
-    [...document.querySelectorAll(selector)]
-      .filter((e) => e.classList.length === 2)
+    const skipClass = "bluespy-skip";
+    [
+      ...document.querySelectorAll(genSelector("feed")),
+      ...document.querySelectorAll(genSelector("postThread")),
+    ]
+      .filter((e) => !e.classList.contains(skipClass))
       .forEach((e) => {
+        console.log(e);
         if (e.innerText.endsWith("...") || isExternal(e.href)) {
           const href = e.href.replace(/^https?:\/\//, "");
           const innerText = e.innerText.replace("...", "");
@@ -31,7 +39,7 @@ function main(e) {
             e.appendChild(span);
           }
         }
-        e.classList.add("bluespy-skip");
+        e.classList.add(skipClass);
       });
   }
 }
