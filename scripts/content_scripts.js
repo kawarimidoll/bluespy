@@ -19,7 +19,7 @@ function main(e) {
     ]
       .filter((e) => !e.classList.contains(skipClass))
       .forEach((e) => {
-        console.log(e);
+        // console.log(e);
         if (e.innerText.endsWith("...") || isExternal(e.href)) {
           const href = e.href.replace(/^https?:\/\//, "");
           const innerText = e.innerText.replace("...", "");
