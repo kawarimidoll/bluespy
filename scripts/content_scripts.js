@@ -5,7 +5,7 @@ function isExternal(url) {
 }
 
 function genSelector(itemType) {
-  return `div[role="link"][data-testid^="${itemType}Item-by-"] a.css-1qaijid.r-13awgt0.r-1loqt21[role="link"]`;
+  return `div[role="link"][data-testid^="${itemType}Item-by-"] a.css-1jxf684.r-13awgt0.r-1loqt21[role="link"]`;
 }
 
 function main(e) {
